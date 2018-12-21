@@ -7,3 +7,5 @@ x64中的dll支持64bit的程序的变速
 加载32位的dll需要使用32位python
 加载64位的dll需要使用64位python
 需要某些python库
+
+也会HOOK掉messageBox，可以自行修改
