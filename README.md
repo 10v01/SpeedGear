@@ -1,0 +1,9 @@
+# SpeedGear
+变速齿轮的dll
+实现了对32bit程序以及64bit程序的变速
+x32中的dll支持32bit的程序的变速
+x64中的dll支持64bit的程序的变速
+将main.py复制至dll所在的文件夹即可使用
+加载32位的dll需要使用32位python
+加载64位的dll需要使用64位python
+需要某些python库
