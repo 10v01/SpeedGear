@@ -281,7 +281,7 @@ BOOL WINAPI StartHook(DWORD dwProcID)
 		return FALSE;
 	}
 
-	PVOID pRemoteThread = VirtualAllocEx(test_hProcess, NULL, 0x1000, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+	PVOID pRemoteThread = VirtualAllocEx(test_hProcess, NULL, MAX_PATH+1, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
 	if (pRemoteThread == NULL)
 	{
 		CloseHandle(test_hProcess);
@@ -296,7 +296,7 @@ BOOL WINAPI StartHook(DWORD dwProcID)
 	}
 
 	HANDLE test_hThread = CreateRemoteThread(test_hProcess, NULL, 0, pfnStartAddr, pRemoteThread, 0, NULL);
-	VirtualFreeEx(test_hProcess, pRemoteThread, 0x1000, MEM_RELEASE);
+	VirtualFreeEx(test_hProcess, pRemoteThread, MAX_PATH+1, MEM_RELEASE);
 
 	if (test_hThread == NULL)
 	{
